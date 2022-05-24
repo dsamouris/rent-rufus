@@ -1,2 +1,23 @@
 <h1>Dogs#index</h1>
 <p>Find me in app/views/dogs/index.html.erb</p>
+
+<h3> This are the buddies you could rent</h3>
+
+  <tbody>
+    <% @dogs.each do |dog| %>
+      <tr>
+        <td><%= dog.name %></td>
+        <td><%= dog.breed %></td>
+        <%# <td><%= link_to 'Show', restaurant</td> %>
+          <%# <% if policy(restaurant).update? %>
+            <%# <%= link_to 'Edit', edit_restaurant_path(restaurant) %>
+          <%# <% end %>
+        <%# </td> %>
+        <%# <td> %>
+          <%# <% if policy(restaurant).destroy? %>
+            <%# <%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%# <% end %>
+        <%# </td> %>
+      <%# </tr> %>
+    <% end %>
+  </tbody>
