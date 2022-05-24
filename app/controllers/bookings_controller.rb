@@ -11,7 +11,6 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     @dog = Dog.find(params[:dog_id])
-    # @dog_owner = @dog.user
     # authorize @booking
   end
 
@@ -57,6 +56,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :dog_id, :user_id)
+    params.require(:booking).permit(:start_date, :end_date, :dog_id)
   end
 end
