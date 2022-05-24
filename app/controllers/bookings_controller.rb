@@ -9,15 +9,15 @@ class BookingsController < ApplicationController
   end
 
   def new
+    @booking = Booking.new
     @dog = Dog.find(params[:dog_id])
     @dog_owner = @dog.user
-    @booking = Booking.new
     # authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.dog = Dog.find(params[:island_id])
+    @booking.dog = Dog.find(params[:dog_id])
     @booking.user = current_user
     if @booking.save
       redirect_to booking_path(@booking), notice: 'Booking successful'
@@ -27,21 +27,21 @@ class BookingsController < ApplicationController
     # authorize @booking
   end
 
-  def edit
-    set_booking
-    @booking = Booking.find(params[:id])
-    # authorize @booking
-  end
+  # def edit
+  #   set_booking
+  #   @booking = Booking.find(params[:id])
+  #   # authorize @booking
+  # end
 
-  def update
-    set_booking
-    if @booking.update(booking_params)
-      redirect_to booking_path(@booking), notice: 'Booking was successfully updated.'
-    else
-      render :edit
-    end
-    # authorize @booking
-  end
+  # def update
+  #   set_booking
+  #   if @booking.update(booking_params)
+  #     redirect_to booking_path(@booking), notice: 'Booking was successfully updated.'
+  #   else
+  #     render :edit
+  #   end
+  #   # authorize @booking
+  # end
 
   def destroy
     set_booking
@@ -57,6 +57,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date, :dog_id)
   end
 end
