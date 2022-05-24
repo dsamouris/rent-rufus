@@ -7,6 +7,9 @@
   <%= f.input :activity %>
   <%= f.input :breed %>
   <%= f.input :age %>
-   <%= f.input :size %>
+  <%= f.input :size, collection: ["Small", "Medium", "Large"] %>
   <%= f.button :submit %>
 <% end %>
+
+
+<!-- dropdown on the age (prevent negative)>
