@@ -1,10 +1,13 @@
 class ApplicationController < ActionController::Base
-  # before_action :authenticate_user!
-  # include Pundit
+  before_action :authenticate_user!
+  include Pundit
 
   # Pundit: white-list approach.
-  # after_action :verify_authorized, except: :index, unless: :skip_pundit?
-  # after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
+  after_action :verify_authorized, except: :index, unless: :skip_pundit?
+  after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
+
+    # change the verification policy to allow visitors to see show (but not create / edit / destroy)
+
 
   # Uncomment when you *really understand* Pundit!
   # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
@@ -15,7 +18,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  # def skip_pundit?
-  #   devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
-  # end
+  def skip_pundit?
+    devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
+  end
 end

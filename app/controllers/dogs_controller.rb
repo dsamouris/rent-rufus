@@ -2,20 +2,21 @@ class DogsController < ApplicationController
   before_action :set_dog, only: [:show, :edit, :update, :destroy]
 
   def index
-    # @dogs = policy_scope(Dog)
-    @dogs = Dog.all
+    @dogs = policy_scope(Dog)
+  end
+
+  def show
   end
 
   def new
     @dog = Dog.new
-    # authorize @dog
+    authorize @dog
   end
 
   def create
     @dog = Dog.new(dog_params)
     @dog.user = current_user
-
-    # authorize @dog
+    authorize @dog
 
     if @dog.save!
       redirect_to dog_path(@dog), notice: 'Dog was successfully created.'
@@ -25,16 +26,12 @@ class DogsController < ApplicationController
 
   end
 
-  def show
-  end
-
   def update
     @dog.update(dog_params)
     redirect_to dog_path(@dog), notice: 'Dog was successfully updated.'
   end
 
   def edit
-
   end
 
   def destroy
@@ -46,7 +43,7 @@ class DogsController < ApplicationController
 
   def set_dog
     @dog = Dog.find(params[:id])
-    # authorize @dog
+    authorize @dog
   end
 
   def dog_params

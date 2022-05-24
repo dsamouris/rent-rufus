@@ -24,8 +24,16 @@
         <td><%= dog.breed %></td>
         <td><%= dog.user.email %></td>
         <td><%= link_to 'Show', dog_path(dog) %> </td>
-        <td><%= link_to 'Edit', edit_dog_path(dog) %> </td>
-        <td><%= link_to 'Destroy', dog, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+        <td>
+          <% if policy(dog).update? %>
+            <%= link_to 'Edit', edit_dog_path(dog) %>
+          <% end %>
+        </td>
+        <td>
+          <% if policy(dog).destroy? %>
+            <%= link_to 'Destroy', dog, method: :delete, data: { confirm: 'Do you really want to give your dog to the Chinese for lunch?' } %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
