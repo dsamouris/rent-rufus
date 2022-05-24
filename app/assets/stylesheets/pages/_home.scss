@@ -1,1 +1,29 @@
 // Specific CSS for your home-page
+
+.background-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+body {
+
+   h1 {
+    color: red;
+    font-size: 48px;
+   }
+
+   h3 {
+    color: red;
+    font-size: 32px;
+   }
+
+   p {
+    color: red;
+    font-size: 20px;
+   }
+
+}
+
+.footer {
+  display: inline;
+}

@@ -1,2 +1,31 @@
 <h1>Dogs#show</h1>
 <p>Find me in app/views/dogs/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @dog.name %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @dog.size %>
+</p>
+
+<p>
+  <strong>Breed:</strong>
+  <%= @dog.breed %>
+</p>
+
+<p>
+  <strong>Activity:</strong>
+  <%= @dog.activity %>
+</p>
+
+<p>
+  <strong> Owner:</strong>
+  <%= @dog.user.email %>
+</p>
+
+<%= link_to 'Edit', edit_dog_path(@dog) %> |
+<%= link_to 'Back to Doggos', dogs_path %>
