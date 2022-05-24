@@ -12,15 +12,16 @@ class DogsController < ApplicationController
   end
 
   def create
-    @rdog = Dog.new(dog_params)
-    # @dog.user = current_user
+    @dog = Dog.new(dog_params)
+    @dog.user = current_user
     # authorize @dog
 
-    if @dog.save
-      redirect_to @dog, notice: 'Dog was successfully created.'
+    if @dog.save!
+      redirect_to dog_path(@dog), notice: 'Dog was successfully created.'
     else
       render :new
     end
+
   end
 
   def show
