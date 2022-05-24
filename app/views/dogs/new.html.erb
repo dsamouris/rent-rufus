@@ -3,11 +3,13 @@
 
 <%= simple_form_for @dog do |f| %>
   <%= f.input :name %>
-  <%= f.input :description %>>
+  <%= f.input :description %>
   <%= f.input :activity %>
   <%= f.input :breed %>
-  <%= f.input :size %>
-  <%= f.input :activity %>
   <%= f.input :age %>
+  <%= f.input :size, collection: ["Small", "Medium", "Large"] %>
   <%= f.button :submit %>
 <% end %>
+
+
+<!-- dropdown on the age (prevent negative)>
