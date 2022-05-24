@@ -18,7 +18,9 @@ end
 
 puts "Creating Dogs..."
 10.times do
-  dog = Dog.create!(name: Faker::Creature::Dog.name, description: Faker::TvShows::SiliconValley.quote, breed: Faker::Creature::Dog.breed, size: Faker::Creature::Dog.size, age: rand(5..15), activity: Faker::Game.genre, user_id: rand(1..5))
+  dog = Dog.new(name: Faker::Creature::Dog.name, description: Faker::TvShows::SiliconValley.quote, breed: Faker::Creature::Dog.breed, size: Faker::Creature::Dog.size, age: rand(5..15), activity: Faker::Game.genre)
+  dog.user = User.all.sample
+  dog.save
   puts "name:#{dog.name} description:#{dog.description} breed:#{dog.breed} size:#{dog.size} age:#{dog.age} activity:#{dog.activity}"
 end
 
