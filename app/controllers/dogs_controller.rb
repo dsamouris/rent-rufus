@@ -12,7 +12,7 @@ class DogsController < ApplicationController
   end
 
   def create
-    @rdog = Dog.new(dog_params)
+    @dog = Dog.new(dog_params)
     # @dog.user = current_user
     # authorize @dog
 
