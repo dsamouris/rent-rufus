@@ -1,0 +1,9 @@
+<%= simple_form_for [dog, booking] do |f| %>
+
+  <%= f.input :start_date, label: "Start Date", as: :string, required: false, input_html: {class: "datepicker"} %>
+  <%= f.input :end_date, label: "End Date", as: :string, required: false, input_html: {class: "datepicker"} %>
+  <%= f.submit "Book!", class: "btn btn-primary" %>
+
+  <%= link_to 'Show', dog %> |
+  <%= link_to 'Back', dogs_path %>
+<% end %>
