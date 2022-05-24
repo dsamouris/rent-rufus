@@ -11,7 +11,6 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     @dog = Dog.find(params[:dog_id])
-    @dog_owner = @dog.user
     # authorize @booking
   end
 
@@ -19,8 +18,8 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.dog = Dog.find(params[:dog_id])
     @booking.user = current_user
-    if @booking.save
-      redirect_to booking_path(@booking), notice: 'Booking successful'
+    if @booking.save!
+      redirect_to user_booking_path(@booking, current_user), notice: 'Booking successful'
     else
       render :new
     end
