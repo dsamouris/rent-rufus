@@ -27,6 +27,42 @@
   <%= @dog.user.email %>
 </p>
 
-<%= link_to 'Book', new_dog_booking_path(@dog) %>
-<%= link_to 'Edit', edit_dog_path(@dog) %> |
+<p>
+  <strong> Bookings:</strong>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dog Renter</th>
+      <th>Booking Start</th>
+      <th>Booking End</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dog.bookings.each do |booking| %>
+      <tr>
+        <td><%= booking.user.email %></td>
+        <td><%= booking.start_date %></td>
+        <td><%= booking.end_date %></td>
+        <td><%= link_to 'Show', user_booking_path(current_user, booking) %> </td>
+        <td>
+          <% if policy(booking).destroy? %>
+            <%= link_to 'Cancel this booking', booking_path(booking), method: :delete, data: { confirm: 'Are you sure you want to cancel your fun date with doggo?' } %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<% if user_signed_in? %>
+  <%= link_to 'Book this Doggo', new_dog_booking_path(@dog) %>
+<% end %>
+
+<%= link_to 'Edit your Doggo', edit_dog_path(@dog) %>
+
 <%= link_to 'Back to Doggos', dogs_path %>

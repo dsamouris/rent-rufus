@@ -1,17 +1,17 @@
 class BookingsController < ApplicationController
   def index
-    # @bookings = policy_scope(Booking)
+    @bookings = policy_scope(Booking)
   end
 
   def show
     set_booking
-    # authorize @booking
+    authorize @booking
   end
 
   def new
     @booking = Booking.new
     @dog = Dog.find(params[:dog_id])
-    # authorize @booking
+    authorize @booking
   end
 
   def create
@@ -19,11 +19,11 @@ class BookingsController < ApplicationController
     @booking.dog = Dog.find(params[:dog_id])
     @booking.user = current_user
     if @booking.save!
-      redirect_to user_booking_path(@booking, current_user), notice: 'Booking successful'
+      redirect_to user_booking_path(current_user, @booking), notice: "You've booked your doggo friend!"
     else
       render :new
     end
-    # authorize @booking
+    authorize @booking
   end
 
   # def edit
@@ -45,7 +45,7 @@ class BookingsController < ApplicationController
   def destroy
     set_booking
     @booking.destroy
-    redirect_to dashboard_path, notice: 'Booking was successfully deleted.'
+    redirect_to dogs_path, notice: 'Booking was successfully deleted.'
     authorize @booking
   end
 
@@ -56,6 +56,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :dog_id)
+    params.require(:booking).permit(:start_date, :end_date)
   end
 end
