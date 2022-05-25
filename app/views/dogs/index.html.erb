@@ -1,49 +1,36 @@
-<p id="notice"><%= notice %></p>
-<h1>Dogs#index</h1>
-<p>Find me in app/views/dogs/index.html.erb</p>
+<h1 class="text-center">Dogs available for your love</h1>
+<h3 class="text-center"> These are the dogs you could spend time with</h3>
 
+<%= link_to 'Add your Dog to our community!', new_dog_path, class: "btn btn-secondary" %>
 
-
-<h1>Doggos!</h1>
-<h3> These are the buddies you could rent</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Breed</th>
-      <th>Owner</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @dogs.each do |dog| %>
-      <tr>
-        <td><%= dog.name %></td>
-        <td><%= dog.breed %></td>
-        <td><%= dog.user.email %></td>
-        <td><%= link_to 'Show', dog_path(dog) %> </td>
-        <td>
-          <% if policy(dog).update? %>
-            <%= link_to 'Edit', edit_dog_path(dog) %>
-          <% end %>
-        </td>
-        <td>
-          <% if policy(dog).destroy? %>
-            <%= link_to 'Destroy', dog, method: :delete, data: { confirm: 'Do you really want to give your dog to the Chinese for lunch?' } %>
-          <% end %>
-        </td>
-
-
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to 'Add your doggo to our network!', new_dog_path, class: "btn btn-secondary" %>
-
-<div style="width: 100%; height: 600px;"
-  data-controller="mapbox"
-  data-mapbox-markers-value="<%= @markers.to_json %>"
-  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+<div class = "container">
+  <div class = "row">
+    <div class = "col-8">
+      <div class="row">
+        <% @dogs.each do |dog| %>
+          <div class="col-6">
+            <%= render 'shared/dog_card', dog: dog %>
+            <td><%= link_to 'Show', dog_path(dog) %> </td>
+              <td>
+                <% if policy(dog).update? %>
+                <%= link_to 'Edit', edit_dog_path(dog) %>
+                <% end %>
+              </td>
+            <td>
+              <% if policy(dog).destroy? %>
+                <%= link_to 'Destroy', dog, method: :delete, data: { confirm: 'Do you really want to give your dog to the Chinese for lunch?' } %>
+              <% end %>
+            </td>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class = "col-4">
+      <div id="map" style="width: 100%; height: 800px;"
+        data-controller="mapbox"
+        data-mapbox-markers-value="<%= @markers.to_json %>"
+        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
+  </div>
+</div>
