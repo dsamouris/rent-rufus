@@ -23,11 +23,17 @@
 </p>
 
 <p>
+  <strong>Address:</strong>
+  <%= @dog.address %>
+</p>
+
+<p>
   <strong> Owner:</strong>
   <%= @dog.user.email %>
 </p>
 
 <p>
+
   <strong> Bookings:</strong>
 </p>
 
@@ -64,5 +70,10 @@
 <% end %>
 
 <%= link_to 'Edit your Doggo', edit_dog_path(@dog) %>
+
+
+
+<%= link_to 'Book', new_dog_booking_path(@dog) %>
+<%= link_to 'Edit', edit_dog_path(@dog) %> |
 
 <%= link_to 'Back to Doggos', dogs_path %>
