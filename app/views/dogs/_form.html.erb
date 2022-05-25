@@ -4,9 +4,11 @@
   <%= f.input :description %>
   <%= f.input :activity %>
   <%= f.input :breed %>
+  <%= f.input :address, input_html: { data: { geocoder_target: "address" }, class: "d-none" },
+              wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
   <%= f.input :age %>
   <%= f.input :size, collection: ["Small", "Medium", "Large"] %>
-  <%= f.button :submit %>
+  <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
 
 <!-- dropdown on the age (prevent negative)>

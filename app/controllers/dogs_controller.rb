@@ -3,6 +3,17 @@ class DogsController < ApplicationController
 
   def index
     @dogs = policy_scope(Dog)
+
+        # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
+        @markers = @dogs.geocoded.map do |dog|
+          {
+            lat: dog.latitude,
+            lng: dog.longitude,
+            info_window: render_to_string(partial: "info_window", locals: { dog: dog }),
+            image_url: helpers.asset_url("rufus_logo.png")
+
+          }
+        end
   end
 
   def show
@@ -47,6 +58,6 @@ class DogsController < ApplicationController
   end
 
   def dog_params
-    params.require(:dog).permit(:name, :size, :breed, :activity, :description, :age)
+    params.require(:dog).permit(:name, :size, :breed, :activity, :description, :address, :age)
   end
 end
