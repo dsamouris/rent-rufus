@@ -16,8 +16,10 @@
   </div> %>
 
   <!-- banner with descriptive text, photo, search form inputs and button -->
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(assets/doggo_banner3.jpg);">
-    <div class="container justify-text-center">
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(assets/doggo_banner3.jpg);">
+  <div class="container">
+    <div class="container-info text-center pt-10">
       <h1>Rent Rufus</h1>
       <h3>Adopt man's best friend...for a few hours!</h3>
       <h3>Choose <strong>when</strong> and <strong>what</strong> you want to do with your new buddy</p>
@@ -25,24 +27,25 @@
       <h1><%= link_to "Find a Dog", dogs_path, class:"btn btn-secondary" %></h1>
     </div>
   </div>
+</div>
 
 
-    <div>
-      <!-- add the search bar -->
 
-      <!-- add the primary Search button -->
-
-
-    </div>
+<div class="container pt-5">
+  <div class="row">
+      <% @dogs.each do |dog|%>
+        <div class="col-4">
+          <%= render 'shared/dog_card', dog: dog %>
+        </div>
+      <%end%>
+  </div>
+</div>
 
 
 
 
   <!-- add the cards x 3 across the middle bottom -->
 
-  <% @dogs.each do |dog|%>
-    <%= render 'shared/dog_card', dog: dog %>
-  <%end%>
 
   <%# <div class="container">
     <div class="d-flex row">
@@ -71,24 +74,15 @@
 
 
   <!-- footer across the bottom -->
+
   <div class="footer">
-    <ul class="social-links" style="list-style: none">
-      <li>
-        <a href="" target="_blank" class="social-icon">
-        <i class="fab fa-twitter-square"></i>
-        </a>
-      </li>
-      <li>
-        <a href="" target="_blank" class="social-icon">
-        <i class="fab fa-facebook-f"></i>
-        </a>
-      </li>
-      <li>
-        <a href="" target="_blank" class="social-icon">
-        <i class="fab fa-instagram"></i>
-        </a>
-      </li>
-    </ul>
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
 
     <ul class = "company-details">
       <li><a href="">Team</a></li>

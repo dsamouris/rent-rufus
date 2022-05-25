@@ -1,9 +1,9 @@
 // Specific CSS for your home-page
 
-.background-image {
-  background-size: cover;
-  background-repeat: no-repeat;
-}
+// .background-image {
+//   background-size: cover;
+//   background-repeat: no-repeat;
+// }
 
 body {
 
@@ -25,5 +25,45 @@ body {
 }
 
 .footer {
-  display: inline;
+  background: #F4F4F4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  padding: 0px 50px;
+  color: rgba(0,0,0,0.3);
+}
+.footer-links {
+  display: flex;
+  align-items: center;
+}
+.footer-links a {
+  color: black;
+  opacity: 0.15;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+.footer-links a:hover {
+  opacity: 1;
+}
+
+.banner {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 550px;
+}
+
+.container-info {
+  h1 {
+    color: white
+  }
+  h3 {
+    color: white
+  }
+  p {
+    color: white
+  }
+
 }
