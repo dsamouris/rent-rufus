@@ -16,27 +16,35 @@
   </div> %>
 
   <!-- banner with descriptive text, photo, search form inputs and button -->
-  <div class="banner" style="background-image: url(assets/doggo_banner3.jpg);">
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(assets/doggo_banner3.jpg);">
     <div class="container justify-text-center">
       <h1>Rent Rufus</h1>
       <h3>Adopt man's best friend...for a few hours!</h3>
       <h3>Choose <strong>when</strong> and <strong>what</strong> you want to do with your new buddy</p>
       <p>Lisbon's premium service for <em>peer-to-peer dog sharing</em></p>
+      <h1><%= link_to "Find a Dog", dogs_path, class:"btn btn-secondary" %></h1>
     </div>
+  </div>
+
 
     <div>
       <!-- add the search bar -->
 
       <!-- add the primary Search button -->
-      <a href="#" class="btn btn-primary">Find a Doggo!</a>
+
+
     </div>
 
-  </div>
+
 
 
   <!-- add the cards x 3 across the middle bottom -->
 
-  <div class="container">
+  <% @dogs.each do |dog|%>
+    <%= render 'shared/dog_card', dog: dog %>
+  <%end%>
+
+  <%# <div class="container">
     <div class="d-flex row">
       <div class="col-4">
         <div class="card">
@@ -59,7 +67,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> %>
 
 
   <!-- footer across the bottom -->
