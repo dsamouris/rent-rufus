@@ -1,11 +1,13 @@
-
 <div class="card mb-4">
-  <% if dog.photo.key.present? %>
-    <%= cl_image_tag dog.photo.key, class: "card-img-top" %>
-  <% end %>
-  <div class="card-body">
-  <h5 class="card-title"><%= dog.name %></h5>
-  <p class="card-text h6 text-truncate"><%= dog.description %></p>
-  <%= link_to "Details", dog_path(dog), class: "btn btn-primary" %>
+    <% if dog.photo.key.present? %>
+      <!-- <div class="card-img-top" style="background-image: url('<%= dog.photo.key.present? ? cl_image_path(dog.photo.key, height: 150, crop: :fill) : '' %>')">
+      </div> -->
+      <%= cl_image_tag dog.photo.key, height: 200, width: 286, :radius=>10, crop: :fill, class:"card-img-top" %>
+    <% end %>
+    <div class="card-body">
+      <h5 class="card-title"><%= dog.name %></h5>
+      <p class="card-text"><%= dog.description %></p>
+      <p class="card-text"><%= dog.activity %></p>
+      <%= link_to "Details", dog_path(dog), class: "btn btn-primary" %>
+    </div>
   </div>
-</div>
