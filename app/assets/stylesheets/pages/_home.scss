@@ -1,27 +1,32 @@
 
 
 body {
-  background: #c7ddcc;
+  background: #dde5df;
 
    h1 {
     color:#16123f;
-    font-size: 48px;
+    font-size: 54px;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+
    }
 
    h3 {
     color:#16123f;
     font-size: 32px;
+    font-family: 'Open Sans', sans-serif;
    }
 
    p {
     color:#16123f;
-    font-size: 20px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
    }
 
 }
 
 .footer {
-  background: #c7ddcc;
+  background: #dde5df;
   display: flex;
   align-items: center;
   justify-content: space-between;
