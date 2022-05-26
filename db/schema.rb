@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2022_05_26_102708) do
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.string "status", default: "t"
+    t.string "status"
     t.date "start_date"
     t.date "end_date"
     t.bigint "dog_id", null: false
