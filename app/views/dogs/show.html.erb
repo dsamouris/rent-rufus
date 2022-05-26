@@ -14,13 +14,12 @@
     <p><strong>Owner: </strong><%= @dog.user.email %> </p>
     <p><strong>Address: </strong><%= @dog.address %> </p>
   </div>
-</div>
 
-<% if user_signed_in? %>
-<%#   <% if dog.user == current_user %>
- <%= link_to 'Edit your Doggo', edit_dog_path(@dog), class: "btn btn-ghost" %>
-<%#   <% else %>
- <%= link_to 'Book this Doggo', new_dog_booking_path(@dog), class: "btn btn-primary" %>
+  <div>
+    <% if user_signed_in? %>
+      <%= link_to 'Book this Doggo', new_dog_booking_path(@dog), class: "btn btn-primary" %>
+      <%= link_to 'Edit your Doggo', edit_dog_path(@dog), class: "btn btn-info" %>
     <% end %>
-<%# <% end %>
-<%= link_to 'Back to Doggos', dogs_path, class: "btn btn-gradient" %>
+    <%= link_to 'Back to Doggos', dogs_path, class: "btn btn-danger" %>
+  </div>
+</div>

@@ -35,12 +35,12 @@
 }
 
 .card {
-  // border-radius: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
 //   background-size: cover;
 //   background-position: center;
 //   height: 150px;
 //   border-radius: 1px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
 //   display: flex;
 //   align-items: center;
 //   justify-content: space-around;
@@ -48,6 +48,19 @@
 //   color: white;
 //   font-weight: bolder;
 //   text-shadow: 0 0 10px rgba(0,0,0,0.7);
+}
+
+.card-text {
+  font-size: 12px;
+  height: 50px;
+  overflow: hidden;
+  // white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.card-img-top {
+  // height: 150px;
+  // background-size: cover;
 }
 
 .content {
@@ -60,6 +73,7 @@
   grid-gap: 16px;
   padding: 16px;
 }
+
 
 #map {
   height: 100vh;
