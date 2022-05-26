@@ -12,6 +12,7 @@
     <p><strong>Activity: </strong><%= @dog.activity %> </p>
     <p><strong>Description: </strong><%= @dog.description %> </p>
     <p><strong>Owner: </strong><%= @dog.user.email %> </p>
+    <p><strong>Address: </strong><%= @dog.address %> </p>
   </div>
 
   <div>
@@ -21,6 +22,4 @@
     <% end %>
     <%= link_to 'Back to Doggos', dogs_path, class: "btn btn-danger" %>
   </div>
-
-
 </div>

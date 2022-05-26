@@ -1,10 +1,34 @@
-</div>
+<div class="container">
   <h1 class="text-center">Dogs available for your love</h1>
   <h3 class="text-center"> These are the dogs you could spend time with</h3>
-<div>
+</div>
 
-<div>
-the search bar
+<div class="container">
+  <%= form_tag dogs_path, method: :get do %>
+    <div class="row">
+      <div class="col">
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a Doggo in your Area"%>
+      </div>
+      <div class="col">
+        <%= select_tag :breed, options_for_select(Dog::BREED, params[:breed]),
+                        include_blank: "Select a breed", class: "form-control" %>
+      </div>
+      <div class="col">
+        <%= select_tag :activity, options_for_select(Dog::ACTIVITY, params[:activity]),
+                        include_blank: "Select an activity", class: "form-control" %>
+      </div>
+      <div class="col">
+        <%= select_tag :size, options_for_select(Dog::SIZE, params[:size]),
+                        include_blank: "Select a size", class: "form-control" %>
+      </div>
+      <div class="col">
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
 </div>
 
 <div class = "container-fluid">

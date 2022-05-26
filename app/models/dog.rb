@@ -5,6 +5,12 @@ class Dog < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+  include PgSearch::Model
+  pg_search_scope :search_by_address,
+    against: [ :address ],
+    using: {
+      tsearch: { prefix: true }
+    }
 
   BREED = %w[Akita Barbet Basenji Beagle Beauceron
              Bloodhound Boerboel Boxer Briard Brittany Bulldog
@@ -14,7 +20,7 @@ class Dog < ApplicationRecord
              Pekingese Plott Pointer Pomeranian Poodle Pug
              Rottweiler Saluki Samoyed Schipperke Vizsla Weimaraner]
 
-  SIZE = %w[XSmall Small Medium Large XLarge]
+  SIZE = %w[Small Medium Large]
 
   ACTIVITY = %w[Hiking Biking Cuddling Dogpark Pickup Fetch Obedience Swimming Dogsledding]
 
