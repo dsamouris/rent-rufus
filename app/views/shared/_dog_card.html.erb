@@ -1,10 +1,11 @@
-<div class="card-dog d-flex">
-  <%= image_tag "doggo_card1.jpg" %>
-  <div class="card-product-infos">
-    <h2><%= dog.name %></h2>
-    <p><strong>Age: </strong><%= dog.age %> </p>
-    <p><strong>Size: </strong><%= dog.size %> </p>
-    <p><strong>Breed: </strong><%= dog.breed %> </p>
-    <p><strong>Activity: </strong><%= dog.activity %> </p>
+
+<div class="card mb-4">
+  <% if dog.photo.key.present? %>
+    <%= cl_image_tag dog.photo.key, class: "card-img-top" %>
+  <% end %>
+  <div class="card-body">
+  <h5 class="card-title"><%= dog.name %></h5>
+  <p class="card-text h6 text-truncate"><%= dog.description %></p>
+  <%= link_to "Details", dog_path(dog), class: "btn btn-primary" %>
   </div>
 </div>
