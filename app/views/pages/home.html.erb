@@ -17,21 +17,32 @@
 
   <!-- banner with descriptive text, photo, search form inputs and button -->
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(assets/doggo_banner3.jpg);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0)),url(assets/dog_yellow.jpg);">
   <div class="container">
-    <div class="container-info text-center pt-10">
-      <h1>Rent Rufus</h1>
-      <h3>Adopt man's best friend...for a few hours!</h3>
-      <h3>Choose <strong>when</strong> and <strong>what</strong> you want to do with your new buddy</p>
-      <p>Lisbon's premium service for <em>peer-to-peer dog sharing</em></p>
-      <h1><%= link_to "Find a Dog", dogs_path, class:"btn btn-secondary" %></h1>
+    <div class="row">
+      <div class="col-5">
+        <div class="container-info text-center mt-5">
+          <h1>Rent Rufus</h1>
+          <h3>Adopt man's best friend...for a few hours!</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-4 offset-8">
+        <div class="container-info text-center mt-5">
+          <h3>Choose <strong>when</strong> and <strong>what</strong> you want to do with your new buddy</p>
+          <p>Lisbon's premium service for <em>peer-to-peer dog sharing</em></p>
+          <h1><%= link_to "Find a Dog", dogs_path, class:"btn btn-secondary" %></h1>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
 
 
-<div class="container pt-5">
+<div class="container py-5">
   <div class="row">
       <% @dogs.each do |dog|%>
         <div class="col-4">
@@ -43,53 +54,23 @@
 
 
 
-
-  <!-- add the cards x 3 across the middle bottom -->
-
-
-  <%# <div class="container">
-    <div class="d-flex row">
-      <div class="col-4">
-        <div class="card">
-          <img src="/assets/doggo_card1.jpg" alt="Doggo Card">
-          <p>This dog is great for this activity!</p>
-          <h3>Name</h3>
-          <p>Breed</p>
-        </div>
-        <div class="card">
-          <img src="/assets/doggo_card1.jpg" alt="Doggo Card">
-          <p>This dog is great for this activity!</p>
-          <h3>Name</h3>
-          <p>Breed</p>
-        </div>
-        <div class="card">
-          <img src="/assets/doggo_card1.jpg" alt="Doggo Card">
-          <p>This dog is great for this activity!</p>
-          <h3>Name</h3>
-          <p>Breed</p>
-        </div>
-      </div>
-    </div>
-  </div> %>
-
-
-  <!-- footer across the bottom -->
-
   <div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-  </div>
+    <div class="footer-links">
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
 
-    <ul class = "company-details">
-      <li><a href="">Team</a></li>
-      <li><a href="">About Us</a></li>
-      <li><a href="">Privacy</a></li>
-      <li><a href="">Legal</a></li>
-    </ul>
+    <div class="company">
+      <ul class = "company-details">
+        <li><a href="">Team</a></li>
+        <li><a href="">About Us</a></li>
+        <li><a href="">Privacy</a></li>
+        <li><a href="">Legal</a></li>
+      </ul>
+    </div>
   </div>
 
 </body>
