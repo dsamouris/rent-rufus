@@ -1,8 +1,18 @@
 
 <p id="notice"><%= notice %></p>
 
-<div class="col-6">
-  <%= render 'shared/dog_card', dog: @dog %>
+<div class="card-show justify-content-center">
+  <img src="/assets/doggo_card1.jpg" alt="Doggo Card">
+  <div class="show-dog" >
+
+    <h2><%= @dog.name %></h2>
+    <p><strong>Age: </strong><%= @dog.age %> </p>
+    <p><strong>Size: </strong><%= @dog.size %> </p>
+    <p><strong>Breed: </strong><%= @dog.breed %> </p>
+    <p><strong>Activity: </strong><%= @dog.activity %> </p>
+    <p><strong>Description: </strong><%= @dog.description %> </p>
+    <p><strong>Owner: </strong><%= @dog.user.email %> </p>
+  </div>
 </div>
 
 <% if user_signed_in? %>

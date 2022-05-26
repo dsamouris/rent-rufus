@@ -1,31 +1,27 @@
-// Specific CSS for your home-page
 
-// .background-image {
-//   background-size: cover;
-//   background-repeat: no-repeat;
-// }
 
 body {
+  background: #c7ddcc;
 
    h1 {
-    // color: red;
+    color:#16123f;
     font-size: 48px;
    }
 
    h3 {
-    // color: red;
+    color:#16123f;
     font-size: 32px;
    }
 
    p {
-    // color: red;
+    color:#16123f;
     font-size: 20px;
    }
 
 }
 
 .footer {
-  background: #F4F4F4;
+  background: #c7ddcc;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -38,7 +34,7 @@ body {
   align-items: center;
 }
 .footer-links a {
-  color: black;
+  color:#16123f;
   opacity: 0.15;
   text-decoration: none;
   font-size: 24px;
@@ -48,22 +44,26 @@ body {
   opacity: 1;
 }
 
+.company-details {
+  display: flex;
+  align-items: center;
+  list-style-type:none;
+
+}
+.company-details a {
+  color: #16123f;
+  opacity: 0.15;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+.company-details a:hover {
+  opacity: 1;
+}
+
 .banner {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 550px;
-}
-
-.container-info {
-  h1 {
-    color: white
-  }
-  h3 {
-    color: white
-  }
-  p {
-    color: white
-  }
-
+  height: 600px;
 }
