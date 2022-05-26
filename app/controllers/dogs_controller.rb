@@ -3,17 +3,30 @@ class DogsController < ApplicationController
 
   def index
     @dogs = policy_scope(Dog)
+    if params[:breed].present?
+      @dogs = @dogs.where(breed: params[:breed])
+    end
+    if params[:size].present?
+      @dogs = @dogs.where(size: params[:size])
+    end
+    if params[:activity].present?
+      @dogs = @dogs.where(activity: params[:activity])
+    end
+    if params[:query].present?
+      @dogs = @dogs.search_by_address(params[:query])
+    end
 
-        # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
-        @markers = @dogs.geocoded.map do |dog|
-          {
-            lat: dog.latitude,
-            lng: dog.longitude,
-            info_window: render_to_string(partial: "info_window", locals: { dog: dog }),
-            image_url: helpers.asset_url("rufus_logo.png")
 
-          }
-        end
+    # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
+    @markers = @dogs.geocoded.map do |dog|
+      {
+        lat: dog.latitude,
+        lng: dog.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { dog: dog }),
+        image_url: helpers.asset_url("rufus_logo.png")
+
+      }
+    end
   end
 
   def show
