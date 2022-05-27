@@ -1,3 +1,5 @@
-<h1>Book this Doggo</h1>
+<div class="container">
+  <h1 class="text-center">Book <%= @dog.name %></h1>
+</div>
 
 <%= render 'form', booking: @booking, dog: @dog %>
