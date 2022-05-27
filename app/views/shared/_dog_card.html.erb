@@ -2,12 +2,23 @@
     <% if dog.photo.key.present? %>
       <!-- <div class="card-img-top" style="background-image: url('<%= dog.photo.key.present? ? cl_image_path(dog.photo.key, height: 150, crop: :fill) : '' %>')">
       </div> -->
-      <%= cl_image_tag dog.photo.key, height: 200, width: 286, :radius=>10, crop: :fill, class:"card-img-top" %>
+      <%= cl_image_tag dog.photo.key, height: 200, :crop=>"scale", class:"card-img-top" %>
+      <% else %>
+      <img height="200" width="" src="https://images.unsplash.com/photo-1536809188428-e8ecf663d0be?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070" alt="alternatetext">
     <% end %>
     <div class="card-body">
-      <h5 class="card-title"><%= dog.name %></h5>
-      <p class="card-text"><%= dog.description %></p>
-      <p class="card-text"><%= dog.activity %></p>
-      <%= link_to "Details", dog_path(dog), class: "btn btn-primary" %>
+      <h2 class="card-title"><%= dog.name %></h2>
+      <p style="font-size:20px;" class="card-text text-truncate "><%= dog.description %></p>
+      <p style="font-size:20px;" class="card-text "><%= dog.activity %></p>
+
+        <div>
+              <%= link_to "Details", dog_path(dog), class: "btn btn-primary" %>
+              <% if policy(dog).update? %>
+                  <%= link_to "Update", edit_dog_path(dog), class: "btn btn-info" %>
+              <% end %>
+              <% if policy(dog).destroy? %>
+                  <td><%= link_to 'Delete', dog, class: "btn btn-secondary", method: :delete, data: { confirm: 'Are you sure you want the Chinese to be fed more?' } %></td>
+              <% end %>
+        </div>
     </div>
   </div>
