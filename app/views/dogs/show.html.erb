@@ -1,25 +1,42 @@
 
 <p id="notice"><%= notice %></p>
 
-<div class="card-show justify-content-center">
-  <img src="/assets/doggo_card1.jpg" alt="Doggo Card">
-  <div class="show-dog" >
+<div class="container">
+  <h1 class="text-center">Meet <%= @dog.name %></h1>
+</div>
 
-    <h2><%= @dog.name %></h2>
-    <p><strong>Age: </strong><%= @dog.age %> </p>
-    <p><strong>Size: </strong><%= @dog.size %> </p>
-    <p><strong>Breed: </strong><%= @dog.breed %> </p>
-    <p><strong>Activity: </strong><%= @dog.activity %> </p>
-    <p><strong>Description: </strong><%= @dog.description %> </p>
-    <p><strong>Owner: </strong><%= @dog.user.email %> </p>
-    <p><strong>Address: </strong><%= @dog.address %> </p>
+<div class="container">
+  <div class="col-3 offset-4">
+    <div class="row ">
+        <% if @dog.photo.key.present? %>
+          <%= cl_image_tag @dog.photo.key, height: 200, :radius=>10, class:"card-img-top" %>
+        <% end %>
+    </div>
   </div>
+</div>
 
-  <div>
-    <% if user_signed_in? %>
-      <%= link_to 'Book this Doggo', new_dog_booking_path(@dog), class: "btn btn-primary" %>
-      <%= link_to 'Edit your Doggo', edit_dog_path(@dog), class: "btn btn-info" %>
-    <% end %>
-    <%= link_to 'Back to Doggos', dogs_path, class: "btn btn-danger" %>
+
+<div class="container">
+  <div class="card d-flex justify-content-center border border-secondary" style="width: 100%">
+    <div class="row">
+      <div class="show-dog" >
+        <h2><%= @dog.name %></h2>
+        <p><strong>Age: </strong><%= @dog.age %> </p>
+        <p><strong>Size: </strong><%= @dog.size %> </p>
+        <p><strong>Breed: </strong><%= @dog.breed %> </p>
+        <p><strong>Activity: </strong><%= @dog.activity %> </p>
+        <p><strong>Description: </strong><%= @dog.description %> </p>
+        <p><strong>Owner: </strong><%= @dog.user.email %> </p>
+        <p><strong>Address: </strong><%= @dog.address %> </p>
+      </div>
+
+      <div>
+        <% if user_signed_in? %>
+          <%= link_to 'Book this Doggo', new_dog_booking_path(@dog), class: "btn btn-primary" %>
+          <%= link_to 'Edit your Doggo', edit_dog_path(@dog), class: "btn btn-info" %>
+        <% end %>
+        <%= link_to 'Back to Doggos', dogs_path, class: "btn btn-danger" %>
+      </div>
+    </div>
   </div>
 </div>
