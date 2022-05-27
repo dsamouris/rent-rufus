@@ -16,6 +16,7 @@ class DogsController < ApplicationController
       @dogs = @dogs.search_by_address(params[:query])
     end
 
+    @dogs = @dogs.order(:name).page(params[:page])
 
     # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
     @markers = @dogs.geocoded.map do |dog|
