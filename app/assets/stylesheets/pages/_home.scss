@@ -71,4 +71,5 @@ body {
   background-size: cover;
   background-position: center;
   height: 600px;
+  background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0)),url(asset-path("dog_yellow.jpg"));
 }

@@ -49,5 +49,5 @@ class Dog < ApplicationRecord
   validates :age, numericality: { greater_than_or_equal_to: 0 }
   validates :age, numericality: { less_than_or_equal_to: 20 }
   validates :address, presence: true
-  validates :address, inclusion: { in: ADDRESS }
+
 end
