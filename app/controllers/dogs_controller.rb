@@ -23,7 +23,7 @@ class DogsController < ApplicationController
         lat: dog.latitude,
         lng: dog.longitude,
         info_window: render_to_string(partial: "info_window", locals: { dog: dog }),
-        image_url: helpers.asset_url("rufus_logo.png")
+        image_url: helpers.asset_url("logo_rufus3.jpeg")
 
       }
     end
@@ -42,7 +42,7 @@ class DogsController < ApplicationController
     @dog.user = current_user
     authorize @dog
 
-    if @dog.save!
+    if @dog.save
       redirect_to dog_path(@dog), notice: 'Dog was successfully created.'
     else
       render :new

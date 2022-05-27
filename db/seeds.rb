@@ -29,7 +29,7 @@ puts "Creating Dogs..."
                 size: Dog::SIZE.sample,
                 age: rand(0..15),
                 activity: Dog::ACTIVITY.sample,
-                address: Faker::Address.full_address)
+                address: Dog::ADDRESS.sample)
   dog.user = User.all.sample
   dog.save
   puts "name:#{dog.name} description:#{dog.description} breed:#{dog.breed}
